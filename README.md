@@ -4,7 +4,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>JDBC README</h1>
+            <h1>JDBC Connectivity</h1>
         </div>
     </header>
     <div class="container main">
