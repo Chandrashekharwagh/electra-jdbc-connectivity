@@ -11,7 +11,7 @@ public class ConnectionService {
         try {
             String url = "jdbc:mysql://localhost:3306/electra";
             String username = "root";
-            String password = "Chandu@2323";
+            String password = "chandu@2323";
             connection = DriverManager.getConnection(url, username, password);
             System.out.println("Connected to the database!");
         } catch (SQLException e) {
