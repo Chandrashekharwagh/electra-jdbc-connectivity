@@ -4,13 +4,12 @@ public class Brand {
     private Long id;
     private String name;
     private String description;
-    private Address address;
 
-    public Brand(Long id, String name, String description, Object address) {
+    public Brand(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.address = (Address)address;
+
     }
 
     public Long getId() {
@@ -36,14 +35,5 @@ public class Brand {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
 
 }

@@ -18,7 +18,7 @@ public class BrandRepository {
         }
     }
     public List<Brand> retrieveBrands() {
-        List<Brand> brands = new ArrayList<>();
+        List<Brand> Brand = new ArrayList<>();
         // Use the connection to execute SQL queries and interact with the database
         try {
             this.initConnection();
@@ -30,13 +30,13 @@ public class BrandRepository {
             // Iterate over the result set
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
-                String name = resultSet.getString("name ");
+                String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
-                String address = resultSet.getString("address");
+
 
                 // Do something with the data, e.g., print it
-               Brand brand =new Brand(id,name,description,address);
-                brands.add(brand);
+               Brand brand = new Brand(id,name,description);
+               Brand.add(brand);
             }
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
@@ -50,7 +50,7 @@ public class BrandRepository {
                 }
             }
         }
-        return brands;
+        return Brand;
     }
 
 }

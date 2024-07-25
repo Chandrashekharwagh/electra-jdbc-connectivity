@@ -1,6 +1,7 @@
 package com.electra;
 
 
+import com.electra.model.Brand;
 import com.electra.service.*;
 
 
@@ -129,8 +130,10 @@ public class App {
 
                 case 4:
                     System.out.println("Performing RETRIEVE operation ");
-                    System.out.println("1. Customer ");
-                    System.out.println("2. Address ");
+                    System.out.println("1. Customer details ");
+                    System.out.println("2. Address of customers");
+                    System.out.println("3. Brands details ");
+
                     System.out.println("0. Exit");
 
                     System.out.print("Enter your choice: ");
@@ -160,8 +163,19 @@ public class App {
                                                 " Country: " + address.getCountry() +
                                                 "Postal_code" + address.getPostalCode());
                             });
-                        }break;
+                        }
+                        break;
+                        case 3:{
+                            System.out.println("Retrieving Brands");
+                            brandService.retrieveBrands().forEach(Brand -> {
+                                System.out.println
+                                        ("Brand ID: " + Brand.getId() +
+                                                " name: " + Brand.getName() +
+                                                " description: " + Brand.getDescription());
+                            });
 
+                        }
+                        break;
                         case 0:
                             System.out.println("Exiting program");
                             break;
