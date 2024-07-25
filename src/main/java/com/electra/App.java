@@ -1,19 +1,14 @@
 package com.electra;
 
-
 import com.electra.model.Brand;
 import com.electra.service.*;
-
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 
 public class App {
-
     private static final ConnectionService connectionService;
-
     static {
         connectionService = new ConnectionService();
     }
@@ -176,15 +171,19 @@ public class App {
 
                         }
                         break;
+
                         case 0:
                             System.out.println("Exiting program");
                             break;
+
                         default:
                             System.out.println("Invalid choice");
-                    }while (choice4 != 0);
+                    }
+                    while (choice4 != 0);
                     scanner.close();
             }
-        }while (choice != 0) ;
+        }
+        while (choice != 0) ;
         scanner.close();
     }
 }
