@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class App {
 
-    public static final ConnectionService connectionService;
+    private static final ConnectionService connectionService;
 
     static {
         connectionService = new ConnectionService();
