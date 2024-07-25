@@ -4,14 +4,13 @@ public class Supplier {
     private Long id;
     private String name;
     private String contactInfo;
-    private Address address;
 
 
-    public Supplier(Long id, String name, String contactInfo, Object address) {
+    public Supplier(Long id, String name, String contactInfo) {
         this.id = id;
         this.name = name;
         this.contactInfo = contactInfo;
-        this.address = (Address) address;
+
     }
 
     public Long getId() {
@@ -38,11 +37,4 @@ public class Supplier {
         this.contactInfo = contactInfo;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 }

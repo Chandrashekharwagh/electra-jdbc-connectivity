@@ -26,17 +26,17 @@ public class SupplierRepository {
 
             // Your database operations here...
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM payment");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM supplier");
 
             // Iterate over the result set
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
-                String contactInfo = resultSet.getString("contactInfo ");
-                Object address = resultSet.getString("address");
+                String contactInfo = resultSet.getString("contact_Info");
+
 
                 // Do something with the data, e.g., print it
-                Supplier supplier = new Supplier(id ,name,contactInfo ,address);
+                Supplier supplier = new Supplier(id ,name,contactInfo);
                 Supplier.add(supplier);
             }
         } catch (SQLException e) {

@@ -128,6 +128,7 @@ public class App {
                     System.out.println("1. Customer details ");
                     System.out.println("2. Address of customers");
                     System.out.println("3. Brands details ");
+                    System.out.println("4. Supplier details ");
 
                     System.out.println("0. Exit");
 
@@ -167,6 +168,17 @@ public class App {
                                         ("Brand ID: " + Brand.getId() +
                                                 " name: " + Brand.getName() +
                                                 " description: " + Brand.getDescription());
+                            });
+
+                        }
+                        break;
+                        case 4:{
+                            System.out.println("Retrieving Supplier details");
+                            supplierService.retrieveSupplier().forEach(supplier -> {
+                                System.out.println
+                                        ("Supplier ID: " + supplier.getId() +
+                                                " name: " + supplier.getName() +
+                                                " ContactInfo: " + supplier.getContactInfo());
                             });
 
                         }
