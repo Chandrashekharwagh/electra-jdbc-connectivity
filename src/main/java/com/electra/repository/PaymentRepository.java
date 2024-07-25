@@ -1,7 +1,7 @@
 package com.electra.repository;
 
 
-import com.electra.model.Orders;
+import com.electra.model.Payment;
 import com.electra.service.ConnectionService;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderRepository {
+public class PaymentRepository {
     private static Connection connection = null;
 
     private void initConnection() throws SQLException {
@@ -20,26 +20,27 @@ public class OrderRepository {
             connection = new ConnectionService().getConnection();
         }
     }
-    public List<Orders> retrieveOrders() {
-        List<Orders> Orders = new ArrayList<>();
+    public List<Payment> retrievePayments() {
+        List<Payment> Payment = new ArrayList<>();
         // Use the connection to execute SQL queries and interact with the database
         try {
             this.initConnection();
 
             // Your database operations here...
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM customer");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM payment");
 
             // Iterate over the result set
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
-                Object product = resultSet.getString("product_id");
+                Double amount = resultSet.getDouble("amount");
+                Date paymentDate = resultSet.getDate("paymentDaTe");
                 Object customer= resultSet.getString("customer_id");
-                Date orderDate = resultSet.getDate("orderDate");
+                Object order = resultSet.getString("orders");
 
                 // Do something with the data, e.g., print it
-                Orders orders = new Orders(id , product, customer, orderDate);
-                Orders.add(orders);
+                Payment payment= new Payment(id , amount ,paymentDate, customer, order);
+                Payment.add(payment);
             }
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
@@ -53,6 +54,6 @@ public class OrderRepository {
                 }
             }
         }
-        return Orders;
-    }
+        return Payment;
+}
 }

@@ -1,7 +1,6 @@
 package com.electra.repository;
 
-
-import com.electra.model.Orders;
+import com.electra.model.Supplier;
 import com.electra.service.ConnectionService;
 
 import java.sql.Connection;
@@ -9,10 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class OrderRepository {
+public class SupplierRepository {
     private static Connection connection = null;
 
     private void initConnection() throws SQLException {
@@ -20,26 +18,26 @@ public class OrderRepository {
             connection = new ConnectionService().getConnection();
         }
     }
-    public List<Orders> retrieveOrders() {
-        List<Orders> Orders = new ArrayList<>();
+    public List<Supplier> retrieveSupplier() {
+        List<Supplier> Supplier = new ArrayList<>();
         // Use the connection to execute SQL queries and interact with the database
         try {
             this.initConnection();
 
             // Your database operations here...
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM customer");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM payment");
 
             // Iterate over the result set
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
-                Object product = resultSet.getString("product_id");
-                Object customer= resultSet.getString("customer_id");
-                Date orderDate = resultSet.getDate("orderDate");
+                String name = resultSet.getString("name");
+                String contactInfo = resultSet.getString("contactInfo ");
+                Object address = resultSet.getString("address");
 
                 // Do something with the data, e.g., print it
-                Orders orders = new Orders(id , product, customer, orderDate);
-                Orders.add(orders);
+                Supplier supplier = new Supplier(id ,name,contactInfo ,address);
+                Supplier.add(supplier);
             }
         } catch (SQLException e) {
             System.err.println("SQL error: " + e.getMessage());
@@ -53,6 +51,6 @@ public class OrderRepository {
                 }
             }
         }
-        return Orders;
+        return Supplier;
     }
 }

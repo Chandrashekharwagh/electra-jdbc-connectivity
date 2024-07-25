@@ -7,11 +7,11 @@ public class Supplier {
     private Address address;
 
 
-    public Supplier(Long id, String name, String contactInfo, Address address) {
+    public Supplier(Long id, String name, String contactInfo, Object address) {
         this.id = id;
         this.name = name;
         this.contactInfo = contactInfo;
-        this.address = address;
+        this.address = (Address) address;
     }
 
     public Long getId() {

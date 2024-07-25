@@ -9,12 +9,12 @@ public class Payment{
     private Customer customer;
     private Orders order;
 
-    public Payment(Long id, Double amount, Date paymentDate, Customer customer, Orders orders) {
+    public Payment(Long id, Double amount, Date paymentDate, Object customer, Object orders) {
         this.id = id;
         this.amount = amount;
         this.paymentDate = paymentDate;
-        this.customer = customer;
-        this.order = orders;
+        this.customer = (Customer)customer;
+        this.order = (Orders) orders;
     }
 
     public Long getId() {
@@ -41,7 +41,7 @@ public class Payment{
         this.paymentDate = paymentDate;
     }
 
-    public Customer getCustomer() {
+    public Object getCustomer() {
         return customer;
     }
 

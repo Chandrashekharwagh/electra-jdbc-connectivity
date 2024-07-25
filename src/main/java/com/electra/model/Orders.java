@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class Orders {
     private Long id;
-    private String product;
-    private String customer;
+    private Product product;
+    private Customer customer;
     private Date orderDate;
 
-    public Orders(Long id, String product, String customer, Date orderDate) {
+    public Orders(Long id, Object product, Object customer, Date orderDate) {
         this.id = id;
-        this.product = product;
-        this.customer = customer;
+        this.product = (Product) product;
+        this.customer = (Customer) customer;
         this.orderDate = orderDate;
     }
 
@@ -23,19 +23,19 @@ public class Orders {
         this.id = id;
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
-    public String getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(String customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 

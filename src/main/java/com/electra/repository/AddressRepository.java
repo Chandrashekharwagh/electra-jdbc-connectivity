@@ -3,10 +3,8 @@ package com.electra.repository;
 
 import com.electra.model.Address;
 import com.electra.service.ConnectionService;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +35,7 @@ public class AddressRepository {
                 String state = resultSet.getString("state");
                 String country = resultSet.getString("country");
                 long postal_code = resultSet.getLong("postal_code");
+
                 // Do something with the data, e.g., print it
                 Address address = new Address(id, street, city,  state,  country, postal_code);
                 addresses.add(address);
@@ -54,5 +53,74 @@ public class AddressRepository {
             }
         }
         return addresses;
+    }
+
+    // Method to insert user data into the database
+    public boolean insertAddress(Address address) throws SQLException {
+        this.initConnection();
+
+        String query = "INSERT INTO address VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setLong(1, address.getId());
+            preparedStatement.setString(2, address.getStreet());
+            preparedStatement.setString(3, address.getCity());
+            preparedStatement.setString(4, address.getState());
+            preparedStatement.setString(5, address.getCountry());
+            preparedStatement.setLong(6, address.getPostalCode());
+
+            System.out.println("inserting address of customer to Address table: " + address);
+
+            int rowsInserted = preparedStatement.executeUpdate();
+
+            return rowsInserted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    // Method to update user data into the database
+    public boolean updateAddress(Address address) throws SQLException {
+        this.initConnection();
+
+        String query = "UPDATE address SET  street = ?, street = ? , state = ?, country = ?, postal_code = ? WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, address.getStreet());
+            preparedStatement.setString(2, address.getCity());
+            preparedStatement.setString(3, address.getState());
+            preparedStatement.setString(4, address.getCountry());
+            preparedStatement.setLong(5, address.getPostalCode());
+            preparedStatement.setLong(6, address.getId());
+
+            System.out.println("updating address of customer to Address table: " + address);
+
+            int rowsInserted = preparedStatement.executeUpdate();
+
+            return rowsInserted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    // Method to update user data into the database
+    public boolean deleteAddress(Long id) throws SQLException {
+        this.initConnection();
+
+        String query = "DELETE FROM address WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setLong(1,id);
+
+            System.out.println("deleting address of customer to Address table: " + id);
+
+            int rowsInserted = preparedStatement.executeUpdate();
+
+            return rowsInserted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

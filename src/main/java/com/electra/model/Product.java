@@ -9,13 +9,13 @@ public class Product {
     private Supplier supplier;
 
 
-    public Product(Long id, String name, String description, Double price, Brand brand, Supplier supplier) {
+    public Product(Long id, String name, String description, Double price, Object brand, Object supplier) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.brand = brand;
-        this.supplier = supplier;
+        this.brand = (Brand) brand;
+        this.supplier = (Supplier) supplier;
     }
 
     public Long getId() {
@@ -65,4 +65,5 @@ public class Product {
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
+
 }

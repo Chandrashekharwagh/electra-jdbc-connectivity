@@ -4,13 +4,13 @@ public class Brand {
     private Long id;
     private String name;
     private String description;
-    private String address;
+    private Address address;
 
-    public Brand(Long id, String name, String description, String address) {
+    public Brand(Long id, String name, String description, Object address) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.address = address;
+        this.address = (Address)address;
     }
 
     public Long getId() {
@@ -37,12 +37,12 @@ public class Brand {
         this.description = description;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
-        this.address = String.valueOf(address);
+        this.address = address;
     }
 
 
