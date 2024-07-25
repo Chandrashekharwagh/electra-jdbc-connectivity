@@ -9,7 +9,7 @@ import java.util.List;
 public class ProductService {
     private static final ProductRepository PRODUCT_REPO = new ProductRepository();
 
-    public List<Product> retrieveProducts() {
+    public static List<Product> retrieveProducts() {
         return PRODUCT_REPO.retrieveProducts();
 
     }

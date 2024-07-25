@@ -1,7 +1,9 @@
 package com.electra.repository;
 
 
+import com.electra.model.Brand;
 import com.electra.model.Product;
+import com.electra.model.Supplier;
 import com.electra.service.ConnectionService;
 
 import java.sql.Connection;
@@ -28,7 +30,7 @@ public class ProductRepository {
 
             // Your database operations here...
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM payment");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM product");
 
             // Iterate over the result set
             while (resultSet.next()) {
@@ -36,11 +38,11 @@ public class ProductRepository {
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
                 Double price = resultSet.getDouble("price");
-                Object brand = resultSet.getString("brand");
-                Object supplier  = resultSet.getString("supplier");
+                Object brand = resultSet.getInt("brand_id");
+                Object supplier = resultSet.getInt("supplier_id");
 
                 // Do something with the data, e.g., print it
-                Product product= new Product(id ,name,description,price,brand,supplier);
+                Product product= new Product(id,name,description,price, (Integer)brand,(Integer)supplier);
                 Product.add(product);
             }
         } catch (SQLException e) {

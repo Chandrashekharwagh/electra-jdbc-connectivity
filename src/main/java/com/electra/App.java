@@ -129,6 +129,7 @@ public class App {
                     System.out.println("2. Address of customers");
                     System.out.println("3. Brands details ");
                     System.out.println("4. Supplier details ");
+                    System.out.println("5. Product details of Supplier ");
 
                     System.out.println("0. Exit");
 
@@ -181,6 +182,19 @@ public class App {
                                                 " ContactInfo: " + supplier.getContactInfo());
                             });
 
+                        }
+                        break;
+                        case 5:{
+                            System.out.println("Retrieving Product details of Supplier");
+                            ProductService.retrieveProducts().forEach(product -> {
+                                System.out.println
+                                        ("Product ID: " + product.getId() +
+                                                " name: " + product.getName() +
+                                                " Description: " + product.getDescription() +
+                                                " Price: " + product.getPrice() +
+                                                " Brand: " + product.getBrand_id() +
+                                                " SupplierInfo: " + product.getSupplier_id());
+                            });
                         }
                         break;
 

@@ -5,17 +5,17 @@ public class Product {
     private String name;
     private String description;
     private Double price;
-    private Brand brand;
-    private Supplier supplier;
+    private Integer brand_id;
+    private Integer supplier_id;
 
 
-    public Product(Long id, String name, String description, Double price, Object brand, Object supplier) {
+    public Product(Long id, String name, String description, Double price, Integer brand_id, Integer supplier_id) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.brand = (Brand) brand;
-        this.supplier = (Supplier) supplier;
+        this.brand_id=  brand_id;
+        this.supplier_id = supplier_id;
     }
 
     public Long getId() {
@@ -50,20 +50,19 @@ public class Product {
         this.price = price;
     }
 
-    public Brand getBrand() {
-        return brand;
+    public Integer getBrand_id() {
+        return brand_id;
     }
 
-    public void setBrand(Brand brand) {
-        this.brand = brand;
+    public void setBrand_id(Integer brand_id) {
+        this.brand_id = brand_id;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public Integer getSupplier_id() {
+        return supplier_id;
     }
 
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
+    public void setSupplier_id(Integer supplier_id) {
+        this.supplier_id = supplier_id;
     }
-
 }
