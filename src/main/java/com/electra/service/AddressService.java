@@ -11,9 +11,11 @@ public class AddressService {
 
     private static final AddressRepository ADDRESS_REPO = new AddressRepository();
 
+    // Method to retrieve user Address of the database
     public List<Address> retrieveAddresses() {
         return ADDRESS_REPO.retrieveAddresses();
     }
+
     // Method to insert user Address into the database
     public boolean insertAddress() throws SQLException {
         Scanner scanner = new Scanner(System.in);
@@ -45,6 +47,7 @@ public class AddressService {
         }
         return false;
     }
+
     // Method to update user Address into the database
     public boolean updateAddress() throws SQLException {
         Scanner scanner = new Scanner(System.in);
@@ -76,7 +79,9 @@ public class AddressService {
         }
         return false;
     }
-    // Method to update user Address into the database
+
+
+    // Method to delete user Address of the database
     public boolean deleteAddress() throws SQLException {
         Scanner scanner = new Scanner(System.in);
 
