@@ -7,6 +7,7 @@ import java.util.List;
 public class BrandService {
     private static final BrandRepository BRAND_REPO = new BrandRepository();
 
+    // Method to retrieve brands of the database
     public List<Brand> retrieveBrands() {
         return BRAND_REPO.retrieveBrands();
     }
