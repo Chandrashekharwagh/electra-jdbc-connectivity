@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class CustomerService {
     public static final CustomerRepository CUSTOMER_REPO = new CustomerRepository();
 
+    // Method to retrieve customers of the database
     public List<Customer> retrieveCustomers() {
         return CUSTOMER_REPO.retrieveCustomers();
     }
@@ -61,7 +62,8 @@ public class CustomerService {
         }
         return false;
     }
-    // Method to delete user data into the database
+
+    // Method to delete user data of the database
     public boolean deleteCustomer() throws SQLException {
         Scanner scanner = new Scanner(System.in);
 
