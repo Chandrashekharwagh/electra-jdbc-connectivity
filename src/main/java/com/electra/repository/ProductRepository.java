@@ -1,9 +1,7 @@
 package com.electra.repository;
 
-
-import com.electra.model.Brand;
 import com.electra.model.Product;
-import com.electra.model.Supplier;
+
 import com.electra.service.ConnectionService;
 
 import java.sql.Connection;
@@ -38,11 +36,11 @@ public class ProductRepository {
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
                 Double price = resultSet.getDouble("price");
-                Object brand = resultSet.getInt("brand_id");
-                Object supplier = resultSet.getInt("supplier_id");
+                String brand = resultSet.getString("brand_id");
+                String supplier = resultSet.getString("supplier_id");
 
                 // Do something with the data, e.g., print it
-                Product product= new Product(id,name,description,price, (Integer)brand,(Integer)supplier);
+                Product product= new Product(id,name,description,price,brand,supplier);
                 Product.add(product);
             }
         } catch (SQLException e) {

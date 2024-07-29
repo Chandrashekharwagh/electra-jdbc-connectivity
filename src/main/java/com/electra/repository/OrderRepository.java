@@ -28,14 +28,14 @@ public class OrderRepository {
 
             // Your database operations here...
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM customer");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM orders");
 
             // Iterate over the result set
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
-                Object product = resultSet.getString("product_id");
-                Object customer= resultSet.getString("customer_id");
-                Date orderDate = resultSet.getDate("orderDate");
+                int product = resultSet.getInt("product_id");
+                int customer= resultSet.getInt("customer_id");
+                Date orderDate = resultSet.getDate("order_Date");
 
                 // Do something with the data, e.g., print it
                 Orders orders = new Orders(id , product, customer, orderDate);

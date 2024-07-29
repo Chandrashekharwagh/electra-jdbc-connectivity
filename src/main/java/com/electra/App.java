@@ -33,7 +33,7 @@ public class App {
             System.out.println("*** ELECTRONIC BRAND MANAGEMENT ***");
             System.out.println("_______________________________");
             System.out.println("Select operation:");
-            System.out.println("1. Create ");
+            System.out.println("1. Create a customer");
             System.out.println("2. Update ");
             System.out.println("3. Delete ");
             System.out.println("4. Retrieve");
@@ -44,33 +44,14 @@ public class App {
 
 
             switch (choice) {
-                case 1:
-                    System.out.println("Performing CREATE operation ");
+                case 1: {
 
-                    do {
-                        System.out.print("Enter which Entity you want to Create : ");
-                        System.out.println("1. Customer ");
-                        System.out.println("0. Exit");
-                        choice1 = Integer.parseInt(scanner.nextLine());
-                        switch (choice1) {
+                    System.out.println("Performing CREATE operation on Customer ");
+                    customerService.insertCustomer();
 
-                            case 1:{
-                                System.out.println("Performing CREATE operation on Customer ");
-                                customerService.insertCustomer();
-
-                                System.out.println("Now insert your address ");
-                                addressService.insertAddress();
-                            }
-                            break;
-                            case 2:{
-
-
-                            }
-                            break;
-                        }
-                    } while (choice1 != 0);
-                    scanner.close();
-
+                    System.out.println("Now insert your address ");
+                    addressService.insertAddress();
+                }break;
                 case 2:
                     System.out.println("Performing UPDATE operation ");
                     System.out.println("1. Customer ");
@@ -124,12 +105,13 @@ public class App {
                     break;
 
                 case 4:
-                    System.out.println("Performing RETRIEVE operation ");
+                    System.out.println("Perform RETRIEVE operation on");
                     System.out.println("1. Customer details ");
                     System.out.println("2. Address of customers");
                     System.out.println("3. Brands details ");
                     System.out.println("4. Supplier details ");
                     System.out.println("5. Product details of Supplier ");
+                    System.out.println("6. Order details ");
 
                     System.out.println("0. Exit");
 
@@ -192,8 +174,19 @@ public class App {
                                                 " name: " + product.getName() +
                                                 " Description: " + product.getDescription() +
                                                 " Price: " + product.getPrice() +
-                                                " Brand: " + product.getBrand_id() +
-                                                " SupplierInfo: " + product.getSupplier_id());
+                                                " Brand: " + product.getBrand() +
+                                                " SupplierInfo: " + product.getSupplier());
+                            });
+                        }
+                        break;
+                        case 6:{
+                            System.out.println("Retrieving Order details ");
+                            orderService.retrieveOrders().forEach(orders -> {
+                                System.out.println
+                                        ("Product ID: " + orders.getId() +
+                                                " Description: " + orders.getProduct()+
+                                                " Customer name: " + orders.getCustomer()+
+                                                " Order Date: " + orders.getOrderDate());
                             });
                         }
                         break;
