@@ -33,12 +33,12 @@ public class OrderRepository {
             // Iterate over the result set
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
-                int product = resultSet.getInt("product_id");
-                int customer= resultSet.getInt("customer_id");
+                int product_id = resultSet.getInt("product_id");
+                int customer_id= resultSet.getInt("customer_id");
                 Date orderDate = resultSet.getDate("order_Date");
 
                 // Do something with the data, e.g., print it
-                Orders orders = new Orders(id , product, customer, orderDate);
+                Orders orders = new Orders(id , product_id, customer_id, orderDate);
                 Orders.add(orders);
             }
         } catch (SQLException e) {
