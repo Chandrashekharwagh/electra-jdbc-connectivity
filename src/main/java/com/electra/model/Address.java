@@ -65,6 +65,16 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", postalCode=" + postalCode +
+                '}';
+    }
 }
 
