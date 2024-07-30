@@ -36,4 +36,12 @@ public class Brand {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Brand{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
