@@ -51,11 +51,13 @@ public class App {
 
                     System.out.println("Now insert your address ");
                     addressService.insertAddress();
-                }break;
+                }
+                break;
+
                 case 2:
                     System.out.println("Performing UPDATE operation ");
-                    System.out.println("1. Customer ");
-                    System.out.println("2. Address ");
+                    System.out.println("1. Your Own details ");
+                    System.out.println("2. Your Own Address ");
                     System.out.println("0. Exit");
 
                     // Add your update logic here
@@ -183,9 +185,9 @@ public class App {
                             System.out.println("Retrieving Order details ");
                             orderService.retrieveOrders().forEach(orders -> {
                                 System.out.println
-                                        ("Product ID: " + orders.getId() +
-                                                " Description: " + orders.getProduct()+
-                                                " Customer name: " + orders.getCustomer()+
+                                        ("Order ID: " + orders.getId() +
+                                                " Product ID: " + orders.getProduct()+
+                                                " Customer ID: " + orders.getCustomer()+
                                                 " Order Date: " + orders.getOrderDate());
                             });
                         }
