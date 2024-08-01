@@ -8,10 +8,7 @@ import java.util.Scanner;
 
 
 public class App {
-    private static final ConnectionService connectionService;
-    static {
-        connectionService = new ConnectionService();
-    }
+    private static final ConnectionService connectionService = new ConnectionService();
 
     public static void main(String[] args) throws IOException, SQLException {
 
