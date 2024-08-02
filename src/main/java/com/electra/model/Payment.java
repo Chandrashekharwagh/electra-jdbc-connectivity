@@ -56,4 +56,15 @@ public class Payment{
     public void setOrder(Orders orders) {
         this.order = orders;
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", paymentDate=" + paymentDate +
+                ", customer=" + customer +
+                ", order=" + order +
+                '}';
+    }
 }
