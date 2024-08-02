@@ -64,4 +64,16 @@ public class Product {
     public void setSupplier(String supplier) {
         this.supplier = String.valueOf(supplier);
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", brand='" + brand + '\'' +
+                ", supplier='" + supplier + '\'' +
+                '}';
+    }
 }
