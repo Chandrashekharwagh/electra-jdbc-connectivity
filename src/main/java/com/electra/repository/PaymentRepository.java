@@ -34,12 +34,12 @@ public class PaymentRepository {
             while (resultSet.next()) {
                 long id = resultSet.getLong("id");
                 Double amount = resultSet.getDouble("amount");
-                Date paymentDate = resultSet.getDate("paymentDaTe");
-                Object customer= resultSet.getString("customer_id");
-                Object order = resultSet.getString("orders");
+                Date paymentDate = resultSet.getDate("payment_daTe");
+                int customerId= resultSet.getInt("customer_id");
+                int orderId = resultSet.getInt("order_id");
 
                 // Do something with the data, e.g., print it
-                Payment payment= new Payment(id , amount ,paymentDate, customer, order);
+                Payment payment= new Payment(id , amount ,paymentDate, customerId, orderId);
                 Payment.add(payment);
             }
         } catch (SQLException e) {
