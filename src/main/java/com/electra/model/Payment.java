@@ -6,15 +6,15 @@ public class Payment{
     private Long id;
     private Double amount;
     private Date paymentDate;
-    private Customer customer;
-    private Orders order;
+    private int customerId;
+    private int orderId;
 
-    public Payment(Long id, Double amount, Date paymentDate, Object customer, Object orders) {
+    public Payment(Long id, Double amount, Date paymentDate, int customerId, int orderId) {
         this.id = id;
         this.amount = amount;
         this.paymentDate = paymentDate;
-        this.customer = (Customer)customer;
-        this.order = (Orders) orders;
+        this.customerId = customerId;
+        this.orderId = orderId;
     }
 
     public Long getId() {
@@ -41,20 +41,20 @@ public class Payment{
         this.paymentDate = paymentDate;
     }
 
-    public Object getCustomer() {
-        return customer;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public Orders getOrder() {
-        return order;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(Orders orders) {
-        this.order = orders;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     @Override
@@ -63,8 +63,8 @@ public class Payment{
                 "id=" + id +
                 ", amount=" + amount +
                 ", paymentDate=" + paymentDate +
-                ", customer=" + customer +
-                ", order=" + order +
+                ", customerId=" + customerId +
+                ", orderId=" + orderId +
                 '}';
     }
 }
