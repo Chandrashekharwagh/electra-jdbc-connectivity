@@ -111,6 +111,7 @@ public class App {
                     System.out.println("4. Supplier details ");
                     System.out.println("5. Product details of Supplier ");
                     System.out.println("6. Order details ");
+                    System.out.println("7. Payment details ");
 
                     System.out.println("0. Exit");
 
@@ -183,9 +184,21 @@ public class App {
                             orderService.retrieveOrders().forEach(orders -> {
                                 System.out.println
                                         ("Order ID: " + orders.getId() +
-                                                " Product ID: " + orders.getProduct()+
-                                                " Customer ID: " + orders.getCustomer()+
+                                                " Product ID: " + orders.getProductId()+
+                                                " Customer ID: " + orders.getCustomerId()+
                                                 " Order Date: " + orders.getOrderDate());
+                            });
+                        }
+                        break;
+                        case 7:{
+                            System.out.println("Retrieving Payment details ");
+                            paymentService.retrievePayments().forEach(payment -> {
+                                System.out.println
+                                        ("Order ID: " + payment.getId() +
+                                                " Product ID: " + payment.getAmount()+
+                                                " Order Date: " + payment.getPaymentDate()+
+                                                " Customer ID: " + payment.getCustomerId()+
+                                                " Product ID: " + payment.getOrderId());
                             });
                         }
                         break;
